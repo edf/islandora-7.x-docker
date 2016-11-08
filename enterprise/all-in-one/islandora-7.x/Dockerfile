@@ -20,7 +20,7 @@ FROM jefferyb/ansible:trusty
 MAINTAINER Jeffery Bagirimvano <jefferyb@uark.edu>
 
 ENV TERM=xterm
-ENV ISLANDORA_PLAYBOOK="/root/islandora-7.x-Enterprise"
+ENV ISLANDORA_PLAYBOOK="/home/ed/islandora-7.x-Enterprise"
 
 RUN \
     git clone https://github.com/edf/islandora-7.x-enterprise-ansible.git ${ISLANDORA_PLAYBOOK} && \
