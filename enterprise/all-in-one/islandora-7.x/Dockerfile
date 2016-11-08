@@ -23,7 +23,7 @@ ENV TERM=xterm
 ENV ISLANDORA_PLAYBOOK="/root/islandora-7.x-Enterprise"
 
 RUN \
-    git clone https://github.com/jefferyb/islandora-7.x-enterprise-ansible.git ${ISLANDORA_PLAYBOOK} && \
+    git clone https://github.com/edf/islandora-7.x-enterprise-ansible.git ${ISLANDORA_PLAYBOOK} && \
     cd ${ISLANDORA_PLAYBOOK} && \
     ansible-playbook install-islandora-7.x-enterprise.yaml && \
     service apache2 stop && \
@@ -48,8 +48,8 @@ EXPOSE 80 3306 8080
 CMD \
     ansible-playbook install-islandora-7.x-enterprise.yaml && \
     drush --root=/var/www/html -y updatedb && \
-    drush --root=/var/www/html -y core-cron && \
-    tail -f /var/log/tomcat7/catalina.out \
-         -f /var/log/apache2/*.log \
-         -f /usr/local/fedora/server/logs/fedora.log \
-         -f /usr/local/fedora/server/logs/fedoragsearch.daily.log
+    drush --root=/var/www/html -y core-cron #&& \
+    #tail -f /var/log/tomcat7/catalina.out \
+    #     -f /var/log/apache2/*.log \
+    #     -f /usr/local/fedora/server/logs/fedora.log \
+    #     -f /usr/local/fedora/server/logs/fedoragsearch.daily.log
