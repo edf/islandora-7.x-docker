@@ -14,7 +14,7 @@ An install of [islandora enterprise](https://wiki.duraspace.org/display/ISLANDOR
 Run:
 
 ```bash
-docker run -d --name islandora-enterprise-all-in-one -p 80:80 -p 8080:8080 jefferyb/islandora-enterprise-all-in-one
+docker run -d --name islandora-enterprise-all-in-one -p 80:80 -p 8080:8080 edf/islandora-enterprise-all-in-one
 ```
 ## Volumes:
 
@@ -42,7 +42,7 @@ version: '2'
 
 services:
   islandora:
-    image: jefferyb/islandora-enterprise-all-in-one
+    image: edf/islandora-enterprise-all-in-one
     hostname: islandora.example.com
     restart: always
     container_name: islandora-enterprise-server
@@ -56,7 +56,7 @@ services:
       - islandora-fedora-config:/usr/local/fedora/server/config
       - islandora-solr:/usr/local/fedora/solr
     environment:
-      - "TZ=America/Chicago"
+      - "TZ=America/Denver"
 
 volumes:
   islandora-solr:
