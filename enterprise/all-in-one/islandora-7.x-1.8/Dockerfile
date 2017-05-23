@@ -23,7 +23,7 @@ ENV TERM=xterm
 ENV ISLANDORA_PLAYBOOK="/root/islandora-7.x-Enterprise"
 
 RUN \
-    git clone -b islandora-7.x-1.8 https://github.com/jefferyb/islandora-7.x-enterprise-ansible.git ${ISLANDORA_PLAYBOOK} && \
+    git clone -b islandora-7.x-1.8 https://github.com/edf/islandora-7.x-enterprise-ansible.git ${ISLANDORA_PLAYBOOK} && \
     cd ${ISLANDORA_PLAYBOOK} && \
     ansible-playbook install-islandora-7.x-enterprise.yaml && \
     service apache2 stop && \
